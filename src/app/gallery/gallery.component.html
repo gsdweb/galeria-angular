@@ -1,0 +1,29 @@
+<div class="gallery">
+    <div class="row gallery-title">
+        <div class="col-11"><h1>Galeria de Fotos - V1.0</h1></div>
+        <div class="col-1 text-right"><a href="#"><i class="fab fa-github"></i></a></div>
+    </div>
+    <div class="row">
+        <div class="container">
+            <button class="btn-filter" [class.active]="filterBy=='all'" (click)="filterBy='all'">Tudo</button>
+            <button class="btn-filter" [class.active]="filterBy=='Sala'" (click)="filterBy='Sala'">Sala</button>
+            <button class="btn-filter" [class.active]="filterBy=='Quarto'" (click)="filterBy='Quarto'">Quarto</button>
+            <button class="btn-filter" [class.active]="filterBy=='Cozinha'"
+                (click)="filterBy='Cozinha'">Cozinha</button>
+            <button class="btn-filter" [class.active]="filterBy=='Jardim'" (click)="filterBy='Jardim'">Jardim</button>
+            <button class="btn-filter" [class.active]="filterBy=='Banheiro'"
+                (click)="filterBy='Banheiro'">Banheiro</button>
+            <button class="btn-filter" [class.active]="filterBy=='Varanda'"
+                (click)="filterBy='Varanda'">Varanda</button>
+        </div>
+    </div>
+    <div class="row" id="thumbnailsList">
+
+        <div class="col-md-4 thumb-gallery-parent" *ngFor="let image of (visibleImages | imageFilter:filterBy)">
+            <a href="{{image.url}}" data-fancybox="images">
+                <div class="thumb-gallery-image" [ngStyle]="{background: 'url(' + image.url + ')'}"></div>
+            </a>
+        </div>
+
+    </div>
+</div>
